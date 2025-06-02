@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Laravel + React</title>
+    <title>React in Laravel</title>
     @viteReactRefresh
     @vite('resources/js/app.jsx')
 </head>
