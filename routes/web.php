@@ -35,11 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// routes/web.php
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/login', function () {
     return Inertia::render('Auth/Login');
 })->name('login');

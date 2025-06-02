@@ -23,22 +23,17 @@ export default function Register() {
                 password: password,
             };
 
-            // alert(JSON.stringify(postData));
-
             const response = await axios.post(
                 "http://127.0.0.1:8000/api/register",
-                postData
+                postData 
             );
             
             // const response = await axios.post(
             //     `${process.env.REACT_APP_API_BASE_URL}/api/register`,
             //     postData
             // );
-            
-            // alert("Registration Successful: " + JSON.stringify(response.data));
-            console.log("Full response:", response);
         } catch (error) {
-            // alert("Registration failed.");
+
             console.error(
                 "Registration failed:",
                 error.response?.data || error.message
@@ -55,7 +50,7 @@ export default function Register() {
                 </p>
                 <form onSubmit={handleRegister} className="login-form">
                     <div className="login-input-group">
-                        <label className="login-label">Name</label>
+                        <label className="login-label">User Name</label>
                         <input
                             type="text"
                             value={name}

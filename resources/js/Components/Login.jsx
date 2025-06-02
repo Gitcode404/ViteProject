@@ -1,13 +1,30 @@
-import { useState } from 'react';
-import '../../css/login.css'; // adjust path as needed
-
+import { useState } from "react";
+import "../../css/login.css"; 
+import axios from "axios";
 export default function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        console.log('Login:', { email, password });
+
+          try {
+            const postLoginData = {
+                email: email,
+                password: password,
+            };
+            // alert(email);
+            const response = await axios.post(
+                "http://127.0.0.1:8000/api/login",
+                postLoginData
+            );
+
+        } catch (error) {
+            console.error(
+                "Login failed:",
+                error.response?.data || error.message
+            );
+        }
     };
 
     return (
@@ -17,11 +34,11 @@ export default function Login() {
                 <p className="login-subtitle">Please login to your account</p>
                 <form onSubmit={handleLogin} className="login-form">
                     <div className="login-input-group">
-                        <label className="login-label">Email</label>
+                        <label className="login-label">User Name</label>
                         <input
-                            type="email"
+                            type="text"
                             value={email}
-                            onChange={e => setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
                             required
                             className="login-input"
                             placeholder="you@example.com"
@@ -32,16 +49,21 @@ export default function Login() {
                         <input
                             type="password"
                             value={password}
-                            onChange={e => setPassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
                             required
                             className="login-input"
                             placeholder="Enter your password"
                         />
                     </div>
-                    <button type="submit" className="login-button">Login</button>
+                    <button type="submit" className="login-button">
+                        Login
+                    </button>
                 </form>
                 <p className="login-footer-text">
-                    Don't have an account? <a href="/register" className="login-link">Register</a>
+                    Don't have an account?{" "}
+                    <a href="/register" className="login-link">
+                        Register
+                    </a>
                 </p>
             </div>
         </div>
