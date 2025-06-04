@@ -15,14 +15,14 @@ const Nav = () => {
                 <div className="nav-mid">
                     <span>Deliver to:</span>
                     <p>Current Location</p>
-                    <MdLocationOn />
+                    <MdLocationOn className="nav-mid-lock" />
                     <p>Kolkata Bus stand</p>
                 </div>
                 <div className="nav-data">
-                    <IoSearch />
+                    <IoSearch className="nav-mid-lock nav-search" />
                     <p>Search Food</p>
                     <div className="nav-data-login">
-                        <IoPersonSharp />
+                        <IoPersonSharp className="nav-mid-lock nav-person" />
                         <p>Login</p>
                     </div>
                 </div>
